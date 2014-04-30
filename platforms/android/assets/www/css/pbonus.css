@@ -1,0 +1,32 @@
+.ui-icon-loading{background:url(../img/ajax-loader.gif);}
+.ui-panel-inner {
+     padding:0px;
+ }
+.menu-app {
+   text-align: left;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
+ .ui-controlgroup {
+     margin:0;
+ }
+
+ #header {
+     height:50px;
+ }
+ .bars-button {
+     margin:5px;
+
+ }
+.center-wrapper{
+    text-align: center;
+}
+.center-wrapper * {
+    margin: 0 auto;
+}
+.ui-input-text {width: 70%;}
+#navpanel {top:50px;}
+
+.text-out{text-align: justify;text-shadow: 1px 1px 6px rgba(150, 150, 150, 0.59);}
+.text-out p{text-align: center;}

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=yes" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <!--Styles -->
+     <link rel="stylesheet"  type="text/css" href="css/style.css" />
+     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css" />
+     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.2.css" />
+     <link rel="stylesheet" type="text/css" href="css/animation.css">
+   <title>PBonus</title>
+
+  </head>
+
+  <body>
+
+
+  <!-- Autorization Page -->
+<div data-role="page" data-title="Авторизация" id="auth-page"  data-theme="a" >
+
+    <!-- Content -->
+        <div data-role="content" class="center-wrapper" >
+
+               <div class="app-logo center-wrapper"></div>
+                <input type="text"      id="login_input" placeholder="Username" value="sportivka"><i class="key_icon"></i>
+                <input type="password"  id="pass_input"  placeholder="Password" value="testtest">
+                <a class="ui-btn ui-btn-inline" id="auth_btn" data-inline="true">Log in</a>
+        </div>
+    <!-- /Content -->
+
+    <div class="hrule"><span>or use</span></div>
+
+    <!-- Buttons -->
+
+         <div class="div-widget center-wrapper">
+             <a href="#" onclick="alert('Не реализовано!')" class="facebook_oauth" ></a>
+             <a href="#" onclick="alert('Не реализовано!')" class="google_oauth" ></a>
+             <a href="#" onclick="alert('Не реализовано!')" class="twitter_oauth" ></a>
+             <a href="#" onclick="plugin_vk.auth(false)"    class="vk_oauth"></a>
+         </div>
+
+      <!-- /Buttons -->
+</div>
+<!-- /Autorization Page -->
+
+  <!-- Activate Page (Доделать)-->
+  <div data-role="page" data-title="Активировать код" id="act-page">
+      <!-- Menu Page -->
+      <div data-role="panel" id="act_point" data-theme="a" data-display="overlay" data-position="right">
+          <div data-role="controlgroup" data-corners="false">
+              <a href="#point-page" class="ui-btn menu-app"><i class="icon-location menu-app"></i>Точки</a>
+              <a href="#act-page" class="ui-btn menu-app"><i class="icon-camera menu-app"></i>Активировать код</a>
+              <a href="#balance-page" class="ui-btn menu-app"><i class="icon-wallet menu-app"></i>Баланс</a>
+              <a href="#top-page" class="ui-btn menu-app"><i class="icon-star menu-app"></i>Рейтинг 100</a>
+              <a href="#info-page" class="ui-btn menu-app"><i class="icon-note menu-app"></i>Информация</a>
+              <a onclick="exitFromApp()" class="ui-btn menu-app"><i class="icon-fire menu-app"></i>Выход</a>
+          </div>
+      </div>
+      <!-- /Menu Page -->
+
+      <!-- Header Page -->
+      <div id="header" data-role="header" data-theme="a" data-position="fixed">
+          <a id="bars-button"  class="ui-btn-right"  href="#act_point"></a>
+      </div>
+      <!-- /Header Page -->
+
+
+      <!-- Content (Доделать) -->
+      <div data-role="content" class="center-wrapper">
+
+
+          <!-- Buttons -->
+
+                 <a class="ui-btn ui-btn-inline" id="recognize_btn" data-inline="true">Считать код</a>
+
+              <div class="hrule"><span>или</span></div>
+
+
+          <div class="container">
+              <div class="box-left">
+                  <input type="text" id="act_code_input"  placeholder="Введите код" >
+                  </div>
+              <div class="box-right">
+                  <a class="ui-btn"  id="act_code_btn"></a>
+                  </div>
+          </div>          <!-- /Buttons -->
+
+
+          <!-- /Content -->
+      </div>
+  </div>
+  <!-- /Activate Page -->
+
+
+
+<!-- Point Page (Доделать) -->
+<div data-role="page" data-title="Точки" id="point-page">
+    <!-- Menu Page -->
+    <div data-role="panel" id="panel_point" data-theme="a" data-display="overlay" data-position="right">
+    <div data-role="controlgroup" data-corners="false">
+        <a href="#point-page" class="ui-btn menu-app"><i class="icon-location menu-app"></i>Точки</a>
+        <a href="#act-page" class="ui-btn menu-app"><i class="icon-camera menu-app"></i>Активировать код</a>
+        <a href="#balance-page" class="ui-btn menu-app"><i class="icon-wallet menu-app"></i>Баланс</a>
+        <a href="#rating-page" class="ui-btn menu-app"><i class="icon-star menu-app"></i>Рейтинг</a>
+        <a href="#info-page" class="ui-btn menu-app"><i class="icon-note menu-app"></i>Информация</a>
+        <a onclick="exitFromApp()" class="ui-btn menu-app"><i class="icon-fire menu-app"></i>Выход</a>
+    </div>
+</div>
+<!-- /Menu Page -->
+
+<!-- Header Page -->
+    <div id="header" data-role="header" data-theme="a" data-position="fixed">
+    <a id="bars-button" class="ui-btn-right"  href="#panel_point"></a>
+</div>
+<!-- /Header Page -->
+
+
+<!-- Content -->
+<div data-role="content" class="m_page">
+    <ul data-role="listview" data-split-icon="gear" data-split-theme="d" class="ui-listview">
+
+    </ul>
+</div>
+
+<!-- /Content -->
+</div>
+</div>
+<!-- /Point Page -->
+
+
+
+
+
+
+<!-- Balance Page (Сделать) -->
+<div data-role="page" data-title="Баланс" id="balance-page">
+    <!-- Menu Page -->
+    <div data-role="panel" id="balance_point" data-theme="a" data-display="overlay" data-position="right">
+        <div data-role="controlgroup" data-corners="false">
+            <a href="#point-page" class="ui-btn menu-app"><i class="icon-location menu-app"></i>Точки</a>
+            <a href="#act-page" class="ui-btn menu-app"><i class="icon-camera menu-app"></i>Активировать код</a>
+            <a href="#balance-page" class="ui-btn menu-app"><i class="icon-wallet menu-app"></i>Баланс</a>
+            <a href="#rating-page" class="ui-btn menu-app"><i class="icon-star menu-app"></i>Рейтинг</a>
+            <a href="#info-page" class="ui-btn menu-app"><i class="icon-note menu-app"></i>Информация</a>
+            <a onclick="exitFromApp()" class="ui-btn menu-app"><i class="icon-fire menu-app"></i>Выход</a>
+        </div>
+    </div>
+    <!-- /Menu Page -->
+
+    <!-- Header Page -->
+    <div id="header" data-role="header" data-theme="a" data-position="fixed">
+        <a id="bars-button"  class="ui-btn-right"  href="#balance_point"></a>
+    </div>
+    <!-- /Header Page -->
+
+
+    <!-- Content -->
+    <div data-role="content" class="m_page">
+    <div id="balance_form"></div>
+    </div>
+    <!-- /Content -->
+</div></div>
+<!-- /Balance Page -->
+
+<!-- Rating Page (Сделать) -->
+<div data-role="page" data-title="Рейтинг" id="rating-page">
+    <!-- Menu Page -->
+    <div data-role="panel" id="rating_point" data-theme="a" data-display="overlay" data-position="right">
+        <div data-role="controlgroup" data-corners="false">
+            <a href="#point-page" class="ui-btn menu-app"><i class="icon-location menu-app"></i>Точки</a>
+            <a href="#act-page" class="ui-btn menu-app"><i class="icon-camera menu-app"></i>Активировать код</a>
+            <a href="#balance-page" class="ui-btn menu-app"><i class="icon-wallet menu-app"></i>Баланс</a>
+            <a href="#rating-page" class="ui-btn menu-app"><i class="icon-star menu-app"></i>Рейтинг</a>
+            <a href="#info-page" class="ui-btn menu-app"><i class="icon-note menu-app"></i>Информация</a>
+            <a onclick="exitFromApp()" class="ui-btn menu-app"><i class="icon-fire menu-app"></i>Выход</a>
+        </div>
+    </div>
+    <!-- /Menu Page -->
+
+    <!-- Header Page -->
+    <div id="header" data-role="header" data-theme="a" data-position="fixed">
+        <a id="bars-button"  class="ui-btn-right"  href="#rating_point"></a>
+    </div>
+    <!-- /Header Page -->
+
+
+    <!-- Content -->
+    <div data-role="content" class="m_page">
+ В процессе.
+    </div>
+    <!-- /Content -->
+</div></div>
+<!-- /Rating Page -->
+
+<!-- Info Page (Доделать)-->
+<div data-role="page" data-title="Информация" id="info-page">
+    <!-- Menu Page -->
+    <div data-role="panel" id="info_point" data-theme="a" data-display="overlay" data-position="right">
+        <div data-role="controlgroup" data-corners="false">
+            <a href="#point-page" class="ui-btn menu-app"><i class="icon-location menu-app"></i>Точки</a>
+            <a href="#act-page" class="ui-btn menu-app"><i class="icon-camera menu-app"></i>Активировать код</a>
+            <a href="#balance-page" class="ui-btn menu-app"><i class="icon-wallet menu-app"></i>Баланс</a>
+            <a href="#rating-page" class="ui-btn menu-app"><i class="icon-star menu-app"></i>Рейтинг</a>
+            <a href="#info-page" class="ui-btn menu-app"><i class="icon-note menu-app"></i>Информация</a>
+            <a onclick="exitFromApp()" class="ui-btn menu-app"><i class="icon-fire menu-app"></i>Выход</a>
+        </div>
+    </div>
+    <!-- /Menu Page -->
+
+    <!-- Header Page -->
+    <div id="header" data-role="header" data-theme="a" data-position="fixed">
+        <a id="bars-button"  class="ui-btn-right"  href="#info_point"></a>
+    </div>
+    <!-- /Header Page -->
+    <div data-role="navbar" data-iconpos="top">
+        <ul>
+            <li><a href="#" data-transition="pop"  data-icon="home" id="about" class="btn-out">О нас </a></li>
+            <li><a href="#" data-transition="pop"  data-icon="info" id="info"  class="btn-out">Информация </a></li>
+            <li><a href="#" data-transition="pop"  data-icon="star" id="agreement" class="btn-out">Соглашение </a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div data-role="content" class="m_page">
+
+
+
+        <div data-role="content" class="main_page">
+            <div  class="text-out" id="about-text">
+                <p>About</p>
+                Lorem ipsum dolor sit amet,
+                consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat
+                volutpat. Ut wisi enim ad minim veniam,
+                quis nostrud exerci tation ullamcorper
+                suscipit lobortis nisl ut aliquip ex ea
+                commodo consequat. Duis autem vel eum
+                iriure dolor in hendrerit in vulputate
+                velit esse molestie consequat, vel
+                illum dolore eu feugiat nulla facilisis
+                at vero eros et accumsan et iusto odio
+                dignissim qui blandit praesent luptatum
+                zzril delenit augue duis dolore te
+                feugait nulla facilisi.
+            </div>
+            <div class="text-out"  id="info-text" style="display: none;">
+                <p>Information</p>
+                Lorem ipsum dolor sit amet,
+                consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat
+                volutpat. Ut wisi enim ad minim veniam,
+                quis nostrud exerci tation ullamcorper
+                suscipit lobortis nisl ut aliquip ex ea
+                commodo consequat. Duis autem vel eum
+                iriure dolor in hendrerit in vulputate
+                velit esse molestie consequat, vel
+                illum dolore eu feugiat nulla facilisis
+                at vero eros et accumsan et iusto odio
+                dignissim qui blandit praesent luptatum
+                zzril delenit augue duis dolore te
+                feugait nulla facilisi.
+            </div>
+            <div  class="text-out" id="agreement-text" style="display: none;">
+                <p>Agreement</p>
+                Lorem ipsum dolor sit amet,
+                consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat
+                volutpat. Ut wisi enim ad minim veniam,
+                quis nostrud exerci tation ullamcorper
+                suscipit lobortis nisl ut aliquip ex ea
+                commodo consequat. Duis autem vel eum
+                iriure dolor in hendrerit in vulputate
+                velit esse molestie consequat, vel
+                illum dolore eu feugiat nulla facilisis
+                at vero eros et accumsan et iusto odio
+                dignissim qui blandit praesent luptatum
+                zzril delenit augue duis dolore te
+                feugait nulla facilisi.
+            </div>
+        </div>
+    </div>
+    <!-- /Content -->
+</div>
+</div>
+<!-- /Info Page -->
+
+<!-- Info Point Page (Сделать) -->
+<div data-role="page" data-title="Информация о точке" id="moreinfo-page">
+    <!-- Menu Page -->
+    <div data-role="panel" id="moreinfo_point" data-theme="a" data-display="overlay" data-position="right">
+        <div data-role="controlgroup" data-corners="false">
+            <a href="#point-page" class="ui-btn menu-app"><i class="icon-location menu-app"></i>Точки</a>
+            <a href="#act-page" class="ui-btn menu-app"><i class="icon-camera menu-app"></i>Активировать код</a>
+            <a href="#balance-page" class="ui-btn menu-app"><i class="icon-wallet menu-app"></i>Баланс</a>
+            <a href="#rating-page" class="ui-btn menu-app"><i class="icon-star menu-app"></i>Рейтинг</a>
+            <a href="#info-page" class="ui-btn menu-app"><i class="icon-note menu-app"></i>Информация</a>
+            <a onclick="exitFromApp()" class="ui-btn menu-app"><i class="icon-fire menu-app"></i>Выход</a>
+        </div>
+    </div>
+    <!-- /Menu Page -->
+
+    <!-- Header Page -->
+    <div id="header" data-role="header" data-theme="a" data-position="fixed">
+        <a id="bars-button" class="ui-btn-right"  href="#moreinfo_point"></a>
+    </div>
+    <!-- /Header Page -->
+
+
+    <!-- Content -->
+    <div data-role="content" class="m_page">
+    <div id="moreinfo_form" >
+    </div>
+    </div>
+    <!-- /Content -->
+</div></div>
+<!-- /Balance Page -->
+
+ <!--System Scripts -->
+<!--      <script type="text/javascript" src="phonegap.js"></script>-->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="barcodescanner.js"></script>
+        <!--Scripts -->
+        <script type="text/javascript" src="js/fastclick.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.0.min.js" ></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js" ></script>
+        <script type="text/javascript" src="js/script.js" ></script>
+         
+</body>
